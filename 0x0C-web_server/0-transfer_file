@@ -1,6 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #  a Bash script that transfers a file from our client to a server
-# run with ./0-transfer_file another_page.html 35.168.7.107 ubuntu ~/.ssh/school
 
 
 # Check if all four parameters are provided
