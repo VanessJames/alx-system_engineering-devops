@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+# Check if the correct number of arguments is provided
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <mysql_password>"
+    exit 1
+fi
+
+# MySQL dump command to create backup.sql
+echo "Creating MySQL dump..."
+mysqldump -u root -p"$1" --all-databases > backup.sql
+echo "MySQL dump created."
+
+# Create the tar.gz archive with the desired name format
+tar -czvf "$(date +'%d-%m-%Y').tar.gz" backup.sql
+
+
+# Display success message
+echo "MySQL backup completed and archived as $(date +'%d-%m-%Y').tar.gz"
+
